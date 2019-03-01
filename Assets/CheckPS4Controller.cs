@@ -5,10 +5,12 @@ using UnityEngine;
 public class CheckPS4Controller : MonoBehaviour
 {
 
+    private GameObject StatusText;
+
     // Use this for initialization
     void Start()
     {
-
+        StatusText = GameObject.Find("Status");
     }
 
     // Update is called once per frame
@@ -17,18 +19,22 @@ public class CheckPS4Controller : MonoBehaviour
         if (Input.GetKeyDown("joystick button 0"))
         {
             Debug.Log("□");
+            StatusText.GetComponent<TextMesh>().text = "□";
         }
         if (Input.GetKeyDown("joystick button 1"))
         {
             Debug.Log("✕");
+            StatusText.GetComponent<TextMesh>().text = "✕";
         }
         if (Input.GetKeyDown("joystick button 2"))
         {
             Debug.Log("○");
+            StatusText.GetComponent<TextMesh>().text = "○";
         }
         if (Input.GetKeyDown("joystick button 3"))
         {
             Debug.Log("△");
+            StatusText.GetComponent<TextMesh>().text = "△";
         }
         if (Input.GetKeyDown("joystick button 4"))
         {
