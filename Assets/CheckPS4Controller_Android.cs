@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckPS4Controller : MonoBehaviour
-{
+public class CheckPS4Controller_Android : MonoBehaviour {
+
 
     private GameObject StatusText;
     private GameObject StatusText_Analog;
@@ -21,73 +21,59 @@ public class CheckPS4Controller : MonoBehaviour
     {
         if (Input.GetKeyDown("joystick button 0"))
         {
-            Debug.Log("□");
             StatusDigital = "□";
         }
         if (Input.GetKeyDown("joystick button 1"))
         {
-            Debug.Log("✕");
             StatusDigital = "✕";
         }
         if (Input.GetKeyDown("joystick button 2"))
         {
-            Debug.Log("○");
-            StatusDigital = "○";
+            StatusDigital = "△";
         }
         if (Input.GetKeyDown("joystick button 3"))
         {
-            Debug.Log("△");
-            StatusDigital = "△";
+            StatusDigital = "L1";
         }
         if (Input.GetKeyDown("joystick button 4"))
         {
-            Debug.Log("L1");
-            StatusDigital = "L1";
+            StatusDigital = "L2";
         }
         if (Input.GetKeyDown("joystick button 5"))
         {
-            Debug.Log("R1");
-            StatusDigital = "R1";
+            StatusDigital = "R2";
         }
         if (Input.GetKeyDown("joystick button 6"))
         {
-            Debug.Log("L2");
-            StatusDigital = "L2";
+            StatusDigital = "Share";
         }
         if (Input.GetKeyDown("joystick button 7"))
         {
-            Debug.Log("R2");
-            StatusDigital = "R2";
+            StatusDigital = "Option";
         }
         if (Input.GetKeyDown("joystick button 8"))
         {
-            Debug.Log("Share");
-            StatusDigital = "Share";
-        }
-        if (Input.GetKeyDown("joystick button 9"))
-        {
-            Debug.Log("Option");
-            StatusDigital = "Option";
+            StatusDigital = "TouchPad";
         }
         if (Input.GetKeyDown("joystick button 10"))
         {
-            Debug.Log("L3");
-            StatusDigital = "L3";
+            StatusDigital = "R3";
         }
         if (Input.GetKeyDown("joystick button 11"))
         {
-            Debug.Log("R3");
-            StatusDigital = "R3";
+            StatusDigital = "L3";
         }
         if (Input.GetKeyDown("joystick button 12"))
         {
-            Debug.Log("PS");
             StatusDigital = "PS";
         }
         if (Input.GetKeyDown("joystick button 13"))
         {
-            Debug.Log("TouchPad");
-            StatusDigital = "TouchPad";
+            StatusDigital = "○";
+        }
+        if (Input.GetKeyDown("joystick button 14"))
+        {
+            StatusDigital = "R1";
         }
 
         StatusText.GetComponent<TextMesh>().text = StatusDigital;
@@ -97,36 +83,28 @@ public class CheckPS4Controller : MonoBehaviour
         //1:→↓
         //-1:←↑
         float LeftStick_X = Input.GetAxis("LeftAnalogStick_X");
-        Debug.Log("LeftAnalogStick_X:" + LeftStick_X );
-        float LeftStick_Y = Input.GetAxis("LeftAnalogStick_Y");
-        Debug.Log("LeftAnalogStick_Y:" + LeftStick_Y);
+        float LeftStick_Y = Input.GetAxis("A");
 
         //Right Stick
         //1:→↓
         //-1:←↑
-        float RightStick_X = Input.GetAxis("RightAnalogStick_X");
-        Debug.Log("RightAnalogStick_X:" + RightStick_X );
-        float RightStick_Y = Input.GetAxis("RightAnalogStick_Y");
-        Debug.Log("RightAnalogStick_Y:" + RightStick_Y);
+        float RightStick_X = Input.GetAxis("B");
+        float RightStick_Y = Input.GetAxis("C");
 
         //L2|R2Trigger
         //1:Push
         //-1:Release
-        float R2Trigger = Input.GetAxis("R2Trigger");
-        Debug.Log("R2Trigger:" + R2Trigger);
-        float L2Trigger = Input.GetAxis("L2Trigger");
-        Debug.Log("L2Trigger:" + L2Trigger);
+        float R2Trigger = Input.GetAxis("RightAnalogStick_X");
+        float L2Trigger = Input.GetAxis("LeftAnalogStick_Y");
 
 
         //Dpad
         //1:↑→
         //-1:↓←
-        float Dpad_X = Input.GetAxis("Dpad_X");
-        Debug.Log("Dpad_X:" + Dpad_X);
-        float Dpad_Y = Input.GetAxis("Dpad_Y");
-        Debug.Log("Dpad_Y:" + Dpad_Y);
+        float Dpad_X = Input.GetAxis("L2Trigger");
+        float Dpad_Y = Input.GetAxis("R2Trigger");
 
-        StatusText_Analog.GetComponent<TextMesh>().text = 
+        StatusText_Analog.GetComponent<TextMesh>().text =
             "LeftAnalogStick_X:" + LeftStick_X + "\n"
             + "LeftAnalogStick_Y:" + LeftStick_Y + "\n"
             + "RightAnalogStick_X:" + RightStick_X + "\n"
